@@ -1,0 +1,102 @@
+create database Risk_Assessment;
+
+use Risk_Assessment;
+
+
+
+CREATE TABLE `admin` (
+  `id` int(11) NOT NULL auto_increment,
+  `username` text NOT NULL,
+  `password` text NOT NULL,
+  PRIMARY KEY  (`id`)
+);
+
+
+CREATE TABLE `categories` (
+  `si_no` int(11) NOT NULL auto_increment,
+  `categorie` varchar(50) default NULL,
+  PRIMARY KEY  (`si_no`)
+);
+
+CREATE TABLE `filter` (
+  `categorie` text,
+  `filter` text
+);
+
+CREATE TABLE `friend_search` (
+  `id` int(11) NOT NULL auto_increment,
+  `username` text,
+  `keyword` text,
+  `date` text,
+  PRIMARY KEY  (`id`)
+);
+
+CREATE TABLE `icomment` (
+  `id` int(11) NOT NULL auto_increment,
+  `imgname` text,
+  `username` text,
+  `comment` text,
+  `c_name` text,
+  `dt` text,
+  PRIMARY KEY  (`id`)
+);
+
+CREATE TABLE `images` (
+  `id` int(11) NOT NULL auto_increment,
+  `username` text,
+  `imgname` text,
+  `description` text,
+  `dt` text,
+  `image` blob,
+  `rank` int(11) default NULL,
+  PRIMARY KEY  (`id`)
+);
+
+
+CREATE TABLE `ishare` (
+  `imgname` text,
+  `username` text,
+  `count` int(11) default NULL
+);
+
+CREATE TABLE `likes` (
+  `user` text,
+  `imgname` text
+);
+
+CREATE TABLE `req_res` (
+  `id` int(11) NOT NULL auto_increment,
+  `requestfrom` text,
+  `requestto` text,
+  `status` text,
+  `dt` text,
+  PRIMARY KEY  (`id`)
+);
+
+CREATE TABLE `user` (
+  `id` int(11) NOT NULL auto_increment,
+  `username` varchar(45) default NULL,
+  `password` varchar(45) default NULL,
+  `email` varchar(45) default NULL,
+  `mobile` varchar(45) default NULL,
+  `address` varchar(45) default NULL,
+  `dob` varchar(45) default NULL,
+  `gender` varchar(45) default NULL,
+  `status` varchar(45) default NULL,
+  `image` longblob,
+  PRIMARY KEY  (`id`)
+);
+
+
+CREATE TABLE `imgrecommendtofriend` (
+  `id` int(11) NOT NULL auto_increment,
+  `recommendfrom` varchar(45) default NULL,
+  `recommendto` varchar(45) default NULL,
+  `title` text,
+  `intension` text,
+  `date` text,
+  PRIMARY KEY  (`id`)
+);
+
+
+
